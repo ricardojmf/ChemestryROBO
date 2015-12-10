@@ -1,2 +1,4 @@
 # ChemestryROBO
-Chemestry game with robotic simutalor
+Chemestry game with robotic simutalor.
+
+FEUP@2015
