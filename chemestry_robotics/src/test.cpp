@@ -18,7 +18,6 @@ using namespace std;
 ros::Publisher pub1;
 ros::Publisher pub2;
 
-bool start = true;
 double sonar1;
 double sonar2;
 int sonar = 1;
@@ -48,16 +47,8 @@ int main(int argc, char **argv)
 
     ros::NodeHandle nh;
 
-		pub1 = nh.advertise <geometry_msgs:: Twist > (topic3.c_str(), 1000) ;
-		pub2 = nh.advertise <geometry_msgs:: Twist > (topic6.c_str(), 1000) ;
-
-		//Subscrição do Atomo 1
-    ros::Subscriber lidar_subscriber1 = nh.subscribe(topic1.c_str(), 1, sonarCallback_sonar_0);
-    ros::Subscriber lidar_subscriber2 = nh.subscribe(topic2.c_str(), 1, sonarCallback_sonar_2);
-
-		//Subscrição do Atomo 1
-    ros::Subscriber lidar_subscriber3 = nh.subscribe(topic4.c_str(), 1, sonarCallback_sonar_0);
-    ros::Subscriber lidar_subscriber4 = nh.subscribe(topic5.c_str(), 1, sonarCallback_sonar_2);
+		pub1 = nh.advertise <geometry_msgs::Twist > (topic3.c_str(), 1000) ;
+		pub2 = nh.advertise <geometry_msgs::Twist > (topic6.c_str(), 1000) ;
 
     srand(time(0));
 
