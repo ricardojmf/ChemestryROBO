@@ -6,7 +6,6 @@
 class Atom
 {
   ros::Publisher atomPublisher;
-
   string name;
 
 public:
@@ -14,7 +13,7 @@ public:
   Atom(string name, ros::NodeHandle &nodeHandle);
 
   //Motion functions
-  void moveToPoint(double newX, double newY, double vX, double vY);
-  void rotateangle(double newT);
-}
+  void moveToPoint(double newX, double newY, double vx, double vy);
+  //void rotateAngle(double newT);
+};
 #endif
