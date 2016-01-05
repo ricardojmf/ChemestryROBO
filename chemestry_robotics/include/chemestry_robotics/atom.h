@@ -9,11 +9,7 @@ class Atom
   string name;
 
 public:
-  //Public main constructor
   Atom(string name, ros::NodeHandle &nodeHandle);
-
-  //Motion functions
-  void moveToPoint(double newX, double newY, double vx, double vy);
-  //void rotateAngle(double newT);
+  void moveRandom(double linear_x, double linear_z);
 };
 #endif
