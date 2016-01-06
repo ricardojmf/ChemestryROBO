@@ -10,6 +10,10 @@ class Atom
 
 public:
   Atom(string name, ros::NodeHandle &nodeHandle);
-  void moveRandom(double linear_x, double linear_z);
+  void moveFront(double vl, double distance);
+  void rotate(double va, double angle);
+  void moveFrontSwarm(double vl, double distance);
+  void rotateSwarm(double va);
 };
+
 #endif

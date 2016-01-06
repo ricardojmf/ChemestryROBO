@@ -11,7 +11,8 @@ class Molecule
 public:
   Molecule(string name);
   void addAtom(Atom* atom);
-  void moveRandom();
+  void moveFront();
+  void rotate();
 };
 
 
