@@ -10,5 +10,4 @@
 #define VEL_LINEAR (double) 0.5
 #define VEL_ANGULAR (double) PI / 6
 
-
 using namespace std;

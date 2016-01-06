@@ -10,54 +10,57 @@ void Molecule::addAtom(Atom* atom)
   this->atoms.push_back(atom);
 }
 
-void Molecule::moveFront()
+void Molecule::moveFront(double vl, double distance)
 {
-  ros::Rate rate(2);
+  double lx = 0;
+
+  ros::Rate rate(1);
 
   while(ros::ok)
   {
-    for(unsigned int i = 0; i < this->atoms.size(); i++)
+    if(lx < (distance))
     {
-      //atoms[i]->moveFrontSwarm(VEL_LINEAR);
+      for(unsigned int i = 0; i < this->atoms.size(); i++)
+      {
+        atoms[i]->moveFrontSwarm(vl);
+      }
+      lx += vl;
+    }
+    else
+    {
+      for(unsigned int i = 0; i < this->atoms.size(); i++)
+      {
+        atoms[i]->moveFrontSwarm(0);
+      }
+      break;
     }
     rate.sleep();
   }
-
 }
 
-void Molecule::rotate()
+void Molecule::rotate(double va, double angle)
 {
-
-  ros::Rate rate(2);
-
-  while(ros::ok)
+  double ax = 0;
+  ros::Rate rate(1);
+  while(ros::ok())
   {
-    for(unsigned int i = 0; i < this->atoms.size(); i++)
+    geometry_msgs::Twist msg;
+    if(ax < abs(angle))
     {
-      //atoms[i]->rotateSwarm(VEL_ANGULAR);
+      for(unsigned int i = 0; i < this->atoms.size(); i++)
+      {
+        atoms[i]->rotateSwarm(va);
+      }
+      ax += va;
+    }
+    else
+    {
+      for(unsigned int i = 0; i < this->atoms.size(); i++)
+      {
+        atoms[i]->rotateSwarm(0);
+      }
+      break;
     }
     rate.sleep();
   }
 }
-
-/*
-void Molecule::moveRandom()
-{
-  srand(time(0));
-  ros::Rate rate(2);
-
-	while(ros::ok)
-  {
-
-    double vx = double(rand())/double(RAND_MAX);
-    double vz = double(2 * double(rand())/double(RAND_MAX) - 1);
-
-
-    for(unsigned int i = 0; i < this->atoms.size(); i++)
-    {
-      atoms[i]->moveRandom(vx, vz);
-    }
-    rate.sleep();
-  }
-}
-*/

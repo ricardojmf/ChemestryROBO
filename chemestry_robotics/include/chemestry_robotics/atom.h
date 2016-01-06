@@ -12,7 +12,7 @@ public:
   Atom(string name, ros::NodeHandle &nodeHandle);
   void moveFront(double vl, double distance);
   void rotate(double va, double angle);
-  void moveFrontSwarm(double vl, double distance);
+  void moveFrontSwarm(double vl);
   void rotateSwarm(double va);
 };
 
